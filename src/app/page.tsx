@@ -1,6 +1,7 @@
 import { Counter } from "@/components/counter";
 import SplitText from "@/components/ui/split-text";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { WarningBanner } from "@/components/warning-banner";
 
 export default function Home() {
   return (

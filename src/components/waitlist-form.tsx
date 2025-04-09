@@ -123,6 +123,7 @@ export function WaitlistForm() {
                   className="h-11 rounded-md"
                   aria-label="Email address for waitlist"
                   aria-invalid={!!form.formState.errors.email}
+                  disabled
                   {...field}
                 />
               </FormControl>
@@ -132,7 +133,7 @@ export function WaitlistForm() {
         />
         <Button
           type="submit"
-          disabled={isSubmitting}
+          disabled
           className="h-11 shrink-0 rounded-md px-6 font-medium"
           aria-live="polite"
         >
