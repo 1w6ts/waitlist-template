@@ -38,15 +38,7 @@ export default function RootLayout({
         >
           <Toaster position="bottom-center" />
           <WarningBanner className="max-w-7xl mx-auto mt-4 rounded-lg">
-            This is a preview without env keys. It will not work. If you'd like
-            to check out mine:{" "}
-            <Link
-              href="https://zeit.gg"
-              className="underline underline-offset-4"
-              target="_blank"
-            >
-              here
-            </Link>
+            This is a preview without env keys set. Functionality is limited
           </WarningBanner>
           {children}
         </ThemeProvider>
