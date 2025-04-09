@@ -2,6 +2,8 @@
 
 this is a waitlist app. it uses redis. and arcjet to validate emails.
 
+![](zeitlist.gif)
+
 ## Core Functionality
 
 - Provides a simple form for users to submit their email.
