@@ -1,3 +1,4 @@
+import { Counter } from "@/components/counter";
 import SplitText from "@/components/ui/split-text";
 import { WaitlistForm } from "@/components/waitlist-form";
 
@@ -13,7 +14,9 @@ export default function Home() {
         </SplitText>
       </div>
       <WaitlistForm />
-      <div></div>
+      <div className="mt-4">
+        <Counter />
+      </div>
     </div>
   );
 }
