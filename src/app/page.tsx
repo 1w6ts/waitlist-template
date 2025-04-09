@@ -1,11 +1,5 @@
-"use client";
-import * as motion from "motion/react-client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import SplitText from "@/components/ui/split-text";
-import { stagger } from "motion";
 import { WaitlistForm } from "@/components/waitlist-form";
-import { getWailistCount } from "@/lib/redis";
 
 export default function Home() {
   return (

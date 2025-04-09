@@ -24,7 +24,7 @@ export async function addToWaitlist(email: string): Promise<boolean> {
   }
 }
 
-export async function getWailistCount(): Promise<number> {
+export async function getWaitlistCount(): Promise<number> {
   try {
     const count = await redis.scard("waitlist");
     return count as number;
