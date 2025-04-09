@@ -1,6 +1,9 @@
 import { Counter } from "@/components/counter";
+import { Button } from "@/components/ui/button";
 import SplitText from "@/components/ui/split-text";
 import { WaitlistForm } from "@/components/waitlist-form";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -17,6 +20,13 @@ export default function Home() {
       <div className="mt-4">
         <Counter />
       </div>
+      <footer className="sticky top-[100vh]">
+        <Button size="icon" variant="ghost">
+          <Link href="https://github.com/zeitgg/zeitlist" target="_blank">
+            <FaGithub />
+          </Link>
+        </Button>
+      </footer>
     </div>
   );
 }
