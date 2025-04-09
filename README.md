@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zeitlist
 
-## Getting Started
+this is a waitlist app. it uses redis. and arcjet to validate emails.
 
-First, run the development server:
+## Core Functionality
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Provides a simple form for users to submit their email.
+- Validates submitted emails using Arcjet before processing.
+- Stores valid emails in a Redis list managed by Upstash.
+- Displays a live count of total signups.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** Next.js
+- **Database:** Upstash (Redis)
+- **Email Validation:** Arcjet
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Local Setup
 
-## Learn More
+To get this running on your machine:
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Clone it:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    git clone ``https://github.com/zeitgg/zeitlist.git`
+    cd zeitlist
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **Install dependencies:**
 
-## Deploy on Vercel
+    ```bash
+    bun i
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  **Set up environment variables:**
+    You'll need API keys/URLs. Create a `.env.local` file in the root directory and dd these variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    ```plaintext
+    # Get from your Upstash dashboard
+    UPSTASH_REDIS_REST_URL="YOUR_UPSTASH_REDIS_URL"
+    UPSTASH_REDIS_REST_TOKEN="YOUR_UPSTASH_REDIS_TOKEN"
+
+    # Get from your Arcjet dashboard
+    ARCJET_SITE_KEY="YOUR_ARCJET_SITE_KEY"
+    ```
+
+4.  **Run the dev server:**
+
+    ```bash
+    bun dev
+    ```
+
+5.  **Open in browser:** `http://localhost:3000`
+
+## How it Works (Quick Overview)
+
+1.  User submits their email via the frontend.
+2.  The submission hits an API route (e.g., `/api/waitlist/`).
+3.  This API route first passes the email to Arcjet for validation.
+4.  If Arcjet approves, the email is added to a list in Redis using the Upstash SDK.
+5.  A separate API route (e.g., `/api/waitlist/count`) reads the length of the Redis list to get the current signup count.
+6.  The frontend fetches from the count endpoint and displays the number.
+
+## Contributing
+
+Issues and PRs welcome.
+
+## License
+
+[MIT License](LICENSE)
