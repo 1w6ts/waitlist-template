@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import SplitText from "@/components/ui/split-text";
 import { stagger } from "motion";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { getWailistCount } from "@/lib/redis";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         </SplitText>
       </div>
       <WaitlistForm />
+      <div></div>
     </div>
   );
 }
