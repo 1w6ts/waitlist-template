@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Waitlist",
+  title: "Zeitlist",
+  description: "A simple Next.js Waitlist application with email validation.",
 };
 
 export default function RootLayout({
